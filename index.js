@@ -2,10 +2,15 @@ const { Client } = require('discord.js')
 const schedule = require('node-schedule');
 const express = require('express');
 
-express()
-    .get('/', (req, res) => res.send('app is running'))
-    .listen(8080, () => console.log(`Listening on ${ 8080 }`))
+const path = require('path')
+const PORT = process.env.PORT || 5000
 
+express()
+    .use(express.static(path.join(__dirname, 'public')))
+    .set('views', path.join(__dirname, 'views'))
+    .set('view engine', 'ejs')
+    .get('/', (req, res) => res.render('pages/index'))
+    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 const client = new Client();
 
