@@ -17,7 +17,7 @@ const client = new Client();
 
 client.login(process.env.token);
 
-const CRON_EVERYDAY_AT_10 = '0 21 * * *'
+const CRON_EVERYDAY_AT_10 = '5 20 * * *'
 const DEFAULT_CHANNEL_NAME = '8erat'
 
 let job;
