@@ -1,6 +1,7 @@
 const { Client } = require('discord.js')
 const schedule = require('node-schedule');
 const express = require('express');
+require('heroku-self-ping').default("https://fierce-bayou-48691.herokuapp.com/");
 
 const path = require('path')
 const PORT = process.env.PORT || 5000
