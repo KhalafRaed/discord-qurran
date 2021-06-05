@@ -38,7 +38,7 @@ client.on('message', (message) => {
         }
     } else if (message.content.indexOf('send qurran') !== -1) {
         message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
-        message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
+        message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage + 1}.jpg`)
         activePage = activePage + 2;
     }
 });
@@ -46,7 +46,7 @@ client.on('message', (message) => {
 const setup = (channel, cronExp) => {
     job = schedule.scheduleJob(cronExp, function(){
         channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
-        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
+        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage + 1}.jpg`)
         activePage = activePage + 2;
     });
 };
