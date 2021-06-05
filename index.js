@@ -36,12 +36,17 @@ client.on('message', (message) => {
             console.error("ERROR")
             message.channel.send("The Page # is invalid")
         }
+    } else if (message.content.indexOf('send qurran') !== -1) {
+        message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage++}.jpg`)
+        message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage++}.jpg`)
+        activePage = activePage + 2;
     }
 });
 
 const setup = (channel, cronExp) => {
     job = schedule.scheduleJob(cronExp, function(){
-        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage++}.jpg`)
-        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage++}.jpg`)
+        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
+        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
+        activePage = activePage + 2;
     });
 };
