@@ -1,7 +1,7 @@
 const { Client } = require('discord.js')
 const schedule = require('node-schedule');
 const express = require('express');
-require('heroku-self-ping').default(`https://${process.env.HEROKU_APP_NAME}.herokuapp.com`);
+require('heroku-self-ping').default(`https://${process.env.HEROKU_APP_NAME}.herokuapp.com`, {interval: 1000});
 
 const path = require('path')
 const PORT = process.env.PORT || 5000
@@ -17,7 +17,7 @@ const client = new Client();
 
 client.login(process.env.token);
 
-const CRON_EVERYDAY_AT_10 = '52 19 * * *'
+const CRON_EVERYDAY_AT_10 = '53 19 * * *'
 const DEFAULT_CHANNEL_NAME = '8erat'
 
 let job;
