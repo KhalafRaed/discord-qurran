@@ -1,13 +1,11 @@
 const { Client } = require('discord.js')
 const schedule = require('node-schedule');
 const express = require('express');
-const app     = express();
 
-app.set('port', 8080);
+express()
+    .get('/', (req, res) => res.send('app is running'))
+    .listen(8080, () => console.log(`Listening on ${ 8080 }`))
 
-app.get('/', function(request, response) {
-    response.send('Server is running');
-});
 
 const client = new Client();
 
