@@ -3,11 +3,10 @@ const schedule = require('node-schedule');
 const express = require('express');
 const app     = express();
 
+app.set('port', 8080);
+
 app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
-}).listen(8080, function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
+    response.send('Server is running');
 });
 
 const client = new Client();
