@@ -3,7 +3,7 @@ const schedule = require('node-schedule');
 
 const client = new Client();
 
-client.login('ODUwNTk4MjgzMDU5MjY1NTc2.YLsDYg.-qI7i5yGr0HeCdUglykAPWqmmYo');
+client.login(process.env.token);
 
 const CRON_EVERYDAY_AT_10 = '0 10 * * *'
 const DEFAULT_CHANNEL_NAME = '8ra2at'
