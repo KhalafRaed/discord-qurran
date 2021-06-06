@@ -49,16 +49,36 @@ client.on('message', (message) => {
             message.channel.send("The Page # is invalid")
         }
     } else if (message.content.indexOf('send qurran') !== -1) {
-        message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
-        message.channel.send(`https://www.daily-quran.com/static/pages/page-${activePage + 1}.jpg`)
+        message.channel.send({
+            files: [{
+                attachment: `https://www.daily-quran.com/static/pages/page-${activePage}.jpg`,
+                name: `qurran-${activePage}.jpg`
+            }]
+        });
+        message.channel.send({
+            files: [{
+                attachment: `https://www.daily-quran.com/static/pages/page-${activePage+1}.jpg`,
+                name: `qurran-${activePage+1}.jpg`
+            }]
+        });
         activePage = activePage + 2;
     }
 });
 
 const setup = (channel, cronExp) => {
-    job = schedule.scheduleJob(cronExp, function(){
-        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage}.jpg`)
-        channel.send(`https://www.daily-quran.com/static/pages/page-${activePage + 1}.jpg`)
+    job = schedule.scheduleJob(cronExp, function () {
+        channel.send({
+            files: [{
+                attachment: `https://www.daily-quran.com/static/pages/page-${activePage}.jpg`,
+                name: `qurran-${activePage}.jpg`
+            }]
+        });
+        channel.send({
+            files: [{
+                attachment: `https://www.daily-quran.com/static/pages/page-${activePage+1}.jpg`,
+                name: `qurran-${activePage+1}.jpg`
+            }]
+        });
         activePage = activePage + 2;
     });
 };
