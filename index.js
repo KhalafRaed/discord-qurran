@@ -67,6 +67,9 @@ client.on('message', (message) => {
 
 const setup = (channel, cronExp) => {
     job = schedule.scheduleJob(cronExp, function () {
+        const today = new Date().getDate();
+        const base = 171;
+        const activePage = base + today;
         channel.send({
             files: [{
                 attachment: `https://www.daily-quran.com/static/pages/page-${activePage}.jpg`,
@@ -79,6 +82,5 @@ const setup = (channel, cronExp) => {
                 name: `qurran-${activePage+1}.jpg`
             }]
         });
-        activePage = activePage + 2;
     });
 };
