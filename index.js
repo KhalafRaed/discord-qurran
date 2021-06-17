@@ -21,7 +21,7 @@ const CRON_EVERYDAY_AT_10 = '0 7 * * *'
 const DEFAULT_CHANNEL_NAME = '8ra2at'
 
 let job;
-let activePage = 176;
+let activePage = 200;
 
 client.once('ready', async () => {
     const defaultChannel = client.channels.cache.find(channel => channel.name === DEFAULT_CHANNEL_NAME);
