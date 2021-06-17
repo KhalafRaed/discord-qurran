@@ -48,7 +48,7 @@ client.on('message', (message) => {
             console.error("ERROR")
             message.channel.send("The Page # is invalid")
         }
-    } else if (message.content.indexOf('send qurran') !== -1) {
+    } else if (message.content.indexOf('send-qurran') !== -1) {
         message.channel.send({
             files: [{
                 attachment: `https://www.daily-quran.com/static/pages/page-${activePage}.jpg`,
